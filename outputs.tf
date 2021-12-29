@@ -5,10 +5,10 @@ output "this_role_name" {
 
 output "this_role_trusted_users" {
   description = "RAM users who can play this role"
-  value       = alicloud_ram_role.this.*.ram_users
+  value       = concat(alicloud_ram_role.this.*.arn, [""])[0]
 }
 
 output "this_role_trusted_services" {
   description = "AliCloud services who can play this role"
-  value       = alicloud_ram_role.this.*.services
+  value       = concat(alicloud_ram_role.this.*.services, [""])[0]
 }
